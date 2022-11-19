@@ -3,7 +3,7 @@ require('dotenv').config();
 const { createResponse } = require('../../utils/responseGenerator');
 const { getJWT } = require('../../utils/jwt_token');
 const User = db.user;
-const Card = db.cardtbl
+const Card = db.cardtbl;
 
 // register shariar boss
 module.exports.register = async (req, res) => {
@@ -103,7 +103,7 @@ module.exports.login = async (req, res) => {
       );
     } else {
       // const isValid = await user.validPassword(password, user.password);
-      const isValid = user.pass_word === password
+      const isValid = user.pass_word === password;
       const token = getJWT(user.User_Email);
 
       if (isValid) {
@@ -195,7 +195,7 @@ module.exports.changePassword = async (req, res) => {
 module.exports.refreshToken = async (req, res) => {
   const email = req.params;
   if (!email) {
-    res.json(createResponse(null, "Unauthorized", true));
+    res.json(createResponse(null, 'Unauthorized', true));
   } else {
     const token = getJWT(email);
     res.json(createResponse(token));

@@ -9,12 +9,12 @@ module.exports = (sequelize, DataTypes, Sequelize) => {
         autoIncrement: true,
         allowNull: false,
       },
-   
+
       User_Type: {
         type: DataTypes.STRING(30),
         allowNull: false,
       },
-   
+
       User_FirstName: {
         type: DataTypes.STRING(30),
         allowNull: false,
@@ -26,7 +26,6 @@ module.exports = (sequelize, DataTypes, Sequelize) => {
       User_Email: {
         type: DataTypes.STRING(64),
         allowNull: false,
-        
       },
       PIN: {
         type: DataTypes.STRING(64),
@@ -44,12 +43,12 @@ module.exports = (sequelize, DataTypes, Sequelize) => {
         type: DataTypes.STRING(64),
         allowNull: false,
       },
-      Mobile_No:{
+      Mobile_No: {
         type: DataTypes.STRING(64),
         allowNull: false,
         unique: true,
       },
-      agent:{
+      agent: {
         type: DataTypes.STRING(64),
         allowNull: true,
       },

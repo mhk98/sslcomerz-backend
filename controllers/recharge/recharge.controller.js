@@ -1,6 +1,6 @@
-const { Op } = require('sequelize');
-const { createResponse } = require('../../utils/responseGenerator');
-const db = require('../../models');
+const { Op } = require("sequelize");
+const { createResponse } = require("../../utils/responseGenerator");
+const db = require("../../models");
 const Recharge = db.recharge;
 const Card = db.cardtbl;
 
@@ -29,7 +29,7 @@ module.exports.rechargeInsert = async (req, res) => {
       !rechargepostAmount ||
       !rechargeStatus
     ) {
-      res.json(createResponse(true, null, 'Parameter missing'));
+      res.json(createResponse(true, null, "Parameter missing"));
     } else {
       const result = await Recharge.create({
         id,
@@ -44,7 +44,7 @@ module.exports.rechargeInsert = async (req, res) => {
       });
 
       if (result) {
-        res.json(createResponse(true, result, 'Record inserted'));
+        res.json(createResponse(true, result, "Record inserted"));
         console.log(result);
       }
     }
@@ -65,7 +65,7 @@ exports.findAll = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || 'Some error occurred while retrieving tutorials.',
+          err.message || "Some error occurred while retrieving tutorials.",
       });
     });
 };
@@ -111,7 +111,7 @@ module.exports.getRechargeByTime = async (req = null, res, next) => {
 
     const result = await Recharge.findAll({
       where: {
-        rechargeStatus: 'success',
+        rechargeStatus: "success",
         recharge_date: {
           [Op.and]: {
             [Op.gte]: endOfDateRange,
@@ -136,7 +136,7 @@ module.exports.getRechargeById = async (req, res, next) => {
     const { id } = req.body;
     //gaurd condition
     if (!id) {
-      res.json(createResponse(null, 'rechage card not found', true));
+      res.json(createResponse(null, "rechage card not found", true));
     }
     // body has id
     else {
@@ -157,7 +157,7 @@ module.exports.getRechargeById = async (req, res, next) => {
       if (result) {
         res.json(createResponse(result));
       } else {
-        res.json(createResponse(null, 'Card not found with this id', true));
+        res.json(createResponse(null, "Card not found with this id", true));
       }
     }
   } catch (error) {

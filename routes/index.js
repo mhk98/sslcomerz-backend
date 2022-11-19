@@ -13,6 +13,6 @@ router.use('/lost_historytbls', lost_history);
 router.use('/cardtbl', cardtbl);
 router.use('/usagetbl', usagetbl);
 router.use('/user', user);
-router.use('/', sslCommerz);
+router.use('/sslcommerz', sslCommerz);
 
 module.exports = router;
